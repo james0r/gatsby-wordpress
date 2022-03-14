@@ -6,13 +6,17 @@ const Layout = ({ isHomePage, children }) => {
   const {
     wp: {
       generalSettings: { title },
-    },
+      crbThemeOptions: { crbColorPrimary }
+    }
   } = useStaticQuery(graphql`
     query LayoutQuery {
       wp {
         generalSettings {
           title
           description
+        }
+        crbThemeOptions {
+          crbColorPrimary
         }
       }
     }
@@ -21,6 +25,7 @@ const Layout = ({ isHomePage, children }) => {
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
       <header className="global-header">
+        <span>Theme primary color is: {crbColorPrimary}</span>
         {isHomePage ? (
           <h1 className="main-heading">
             <Link to="/">{parse(title)}</Link>
