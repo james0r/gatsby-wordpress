@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import parse from "html-react-parser"
 import { GatsbyImage } from "gatsby-plugin-image"
+import Layout from "../components/Layout"
 
 // Get Wordpress posts
 // Change limit to set max number of posts returned from query
@@ -45,7 +46,7 @@ const IndexPage = (props) => {
 
   // Replace with relevant keywords for your site (for SEO)
   return (
-    <>
+    <Layout>
       <h1>{ wpPage.title }</h1>
       {/* if we have a featured image for this post let's display it */}
       {featuredImage?.data && (
@@ -58,7 +59,7 @@ const IndexPage = (props) => {
       <div className="content">
         {parse(wpPage.content)}
       </div>
-    </>
+    </Layout>
   )
 }
 

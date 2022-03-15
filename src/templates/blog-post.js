@@ -3,9 +3,9 @@ import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import Seo from "../components/SEO"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {

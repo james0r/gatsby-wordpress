@@ -1,6 +1,9 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import parse from "html-react-parser"
+import "../scss/all.scss"
 
 const Layout = ({ isHomePage, children }) => {
   const {
@@ -25,27 +28,12 @@ const Layout = ({ isHomePage, children }) => {
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
       <header className="global-header">
-        <span>Theme primary color is: {crbColorPrimary}</span>
-        {isHomePage ? (
-          <h1 className="main-heading">
-            <Link to="/">{parse(title)}</Link>
-          </h1>
-        ) : (
-          <Link className="header-link-home" to="/">
-            {title}
-          </Link>
-        )}
+        <Navbar />
       </header>
 
       <main>{children}</main>
 
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-        {` `}
-        And <a href="https://wordpress.org/">WordPress</a>
-      </footer>
+      <Footer />
     </div>
   )
 }
