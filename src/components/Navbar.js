@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import github from '../images/github-icon.svg'
 import logo from '../images/logo.svg'
 
@@ -9,6 +9,9 @@ const Navbar = class extends React.Component {
     this.state = {
       active: false,
       navBarActiveClass: '',
+      menuItems: props.data.allWpMenuItem.nodes?.map((item) => {
+        return item
+      })
     }
   }
 
@@ -63,21 +66,13 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
+              {this.state.menuItems.map((item) => {
+                return (
+                  <Link className="navbar-item" to={item.url}>
+                    {item.label}
+                  </Link>
+                )
+              })}
             </div>
             <div className="navbar-end has-text-centered">
               <a
@@ -98,4 +93,22 @@ const Navbar = class extends React.Component {
   }
 }
 
-export default Navbar
+export default function MyNavbar(props) {
+  return (
+    <StaticQuery
+      query={graphql`
+        query MenuQuery {
+          # if there was more than one user, this would need to be filtered
+          allWpMenuItem(filter: {menu: {node: {locations: {eq: GATSBY_HEADER_MENU}}}}) {
+            nodes {
+              label
+              url
+              title
+            }
+          }
+        }
+      `}
+      render={data => <Navbar data={data} {...props} />}
+    />
+  )
+}
