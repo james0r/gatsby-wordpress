@@ -18,7 +18,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
       <Seo title={post.title} description={post.excerpt} />
 
       <article
-        className="blog-post"
+        className="blog-post container"
         itemScope
         itemType="http://schema.org/Article"
       >

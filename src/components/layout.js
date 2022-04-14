@@ -1,29 +1,28 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+// import { useStaticQuery, graphql } from "gatsby"
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
-import parse from "html-react-parser"
 import "../scss/all.scss"
 
 const Layout = ({ isHomePage, children }) => {
-  const {
-    wp: {
-      generalSettings: { title },
-      crbThemeOptions: { crbColorPrimary }
-    }
-  } = useStaticQuery(graphql`
-    query LayoutQuery {
-      wp {
-        generalSettings {
-          title
-          description
-        }
-        crbThemeOptions {
-          crbColorPrimary
-        }
-      }
-    }
-  `)
+  // const {
+  //   wp: {
+  //     generalSettings: { title },
+  //     crbThemeOptions: { crbColorPrimary }
+  //   }
+  // } = useStaticQuery(graphql`
+  //   query LayoutQuery {
+  //     wp {
+  //       generalSettings {
+  //         title
+  //         description
+  //       }
+  //       crbThemeOptions {
+  //         crbColorPrimary
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
@@ -31,7 +30,7 @@ const Layout = ({ isHomePage, children }) => {
         <Navbar />
       </header>
 
-      <main>{children}</main>
+      <main className="container">{children}</main>
 
       <Footer />
     </div>

@@ -14,12 +14,16 @@
        # if there was more than one user, this would need to be filtered
        author: wpUser {
          firstName
-         twitter: name
          description
          avatar {
            url
+         },
+         seo {
+           social {
+             twitter
+           }
          }
-       }
+        }
      }
    `)
  
@@ -27,7 +31,7 @@
  
    return (
      <div className="bio">
-       {avatarUrl && (
+       {avatarUrl && ( 
          <img
            alt={author?.firstName || ``}
            className="bio-avatar"
@@ -40,8 +44,8 @@
            {` `}
            {author?.description || null}
            {` `}
-           {author?.twitter && (
-             <a href={`https://twitter.com/${author?.twitter || ``}`}>
+           {author?.seo?.social?.twitter && (
+             <a href={`https://twitter.com/${author?.seo?.social?.twitter || ``}`}>
                You should follow them on Twitter
              </a>
            )}

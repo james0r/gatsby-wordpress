@@ -11,7 +11,8 @@ const Navbar = class extends React.Component {
       navBarActiveClass: '',
       menuItems: props.data.allWpMenuItem.nodes?.map((item) => {
         return item
-      })
+      }),
+      numbers: [1,2,3,4,5]
     }
   }
 
@@ -66,9 +67,9 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
-              {this.state.menuItems.map((item) => {
+              {this.state.menuItems.map((item, index) => {
                 return (
-                  <Link className="navbar-item" to={item.url}>
+                  <Link className="navbar-item" to={item.url} key={index}>
                     {item.label}
                   </Link>
                 )
@@ -77,7 +78,7 @@ const Navbar = class extends React.Component {
             <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                href="https://github.com/james0r/gatsby-wordpress"
                 target="_blank"
                 rel="noopener noreferrer"
               >
