@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import parse from "html-react-parser"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Layout from "../components/Layout"
+import Layout from "../components/layout"
 
 // Get Wordpress posts
 // Change limit to set max number of posts returned from query
