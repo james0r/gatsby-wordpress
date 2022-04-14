@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Footer from "../components/footer";
+import Navbar from "../components/navbar";
 import parse from "html-react-parser"
 import "../scss/all.scss"
 
