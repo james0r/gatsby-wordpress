@@ -1,8 +1,8 @@
-@import "~bulma-scss/utilities/initial-variables";
+@import '~bulma-scss/utilities/initial-variables';
 
 // Config vars
 // Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000;
+$kaldi-red: #d64000;
 $kaldi-red-invert: #fff;
 
 $primary: $kaldi-red;
@@ -28,7 +28,7 @@ $black: #2b2523;
     margin-bottom: 1.5rem;
     margin-top: 0;
   }
-// Helper Classes
+  // Helper Classes
 }
 .full-width-image-container {
   width: 100vw;
@@ -59,22 +59,22 @@ $black: #2b2523;
   font-size: 1rem;
   line-height: 1.25;
   background-color: #fff;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   text-decoration: none;
   font-weight: 700;
-  color: #CC3700;
+  color: #cc3700;
   text-align: center;
-  -webkit-box-shadow: inset 0 0 0 2px #CC3700;
+  -webkit-box-shadow: inset 0 0 0 2px #cc3700;
   box-shadow: inset 0 0 0 2px #f40;
-  -webkit-transition: all .15s ease;
-  transition: all .15s ease;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
 }
 .margin-top-0 {
   margin-top: 0 !important;
 }
 .navbar-item .icon {
   color: $primary;
-}// Override for use of svg's from https://simpleicons.org/
+} // Override for use of svg's from https://simpleicons.org/
 .icon svg {
   width: 1.5rem;
   height: 1.5rem;
@@ -96,7 +96,6 @@ $menu-item-active-background-color: $kaldi-red-invert;
 $menu-list-border-left: 1px solid $kaldi-red-invert;
 $menu-label-color: $white-ter;
 
-
 .menu-label {
   font-size: 1em !important;
   text-align: left;
@@ -109,10 +108,10 @@ $menu-label-color: $white-ter;
   padding: 2em;
 }
 .social a {
-  padding: .5em .5em .3em .5em;
+  padding: 0.5em 0.5em 0.3em 0.5em;
   border-radius: 1em;
   background-color: $white-ter;
-  margin: .5em;
+  margin: 0.5em;
   width: 1em;
   height: 1em;
   vertical-align: middle;
@@ -131,4 +130,21 @@ $menu-label-color: $white-ter;
   margin: 0 1.5em 0 0;
 }
 
-@import "~bulma-scss";
+@import '~bulma-scss';
+
+html {
+  font-size: 22px;
+}
+
+body {
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, avenir next,
+  avenir, helvetica, helvetica neue, ubuntu, roboto, noto, segoe ui, arial,
+  sans-serif;
+}
+
+h1 {
+  font-size: 2.25em !important;
+  font-weight: 700;
+  line-height: 1.25 !important;
+}
+

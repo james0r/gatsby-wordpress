@@ -3,6 +3,7 @@ import React from "react"
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import "../scss/all.scss"
+import "../scss/tachyons.min.css"
 
 const Layout = ({ isHomePage, children }) => {
   // const {

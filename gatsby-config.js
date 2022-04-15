@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: ``,
+    title: `Gatsby-Wordpress`,
     siteUrl: `https://localhost:8000`,
   },
   plugins: [
@@ -12,10 +12,19 @@ module.exports = {
     },
     "gatsby-plugin-sass",
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Nunito Sans`,
+        ],
+        display: 'swap'
+      }
+    },
+    {
       resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
-        purgeOnly: ["/all.sass"], // applies purging only on the bulma css file
+        purgeOnly: ["/all.sass", "tachyons.min.css"], // applies purging only on the bulma css file
       },
     },
     "gatsby-plugin-react-helmet",
