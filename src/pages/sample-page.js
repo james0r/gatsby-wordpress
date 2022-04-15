@@ -47,7 +47,7 @@ const IndexPage = (props) => {
   // Replace with relevant keywords for your site (for SEO)
   return (
     <Layout>
-      <h1>{ wpPage.title }</h1>
+      <h1 className="my-4">{ wpPage.title }</h1>
       {/* if we have a featured image for this post let's display it */}
       {featuredImage?.data && (
         <GatsbyImage

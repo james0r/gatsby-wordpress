@@ -18,12 +18,12 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
       <Seo title={post.title} description={post.excerpt} />
 
       <article
-        className="blog-post mw6 center ph3 pv4"
+        className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline b f2 lh-title mt2 mb2">{parse(post.title)}</h1>
+          <h1 itemProp="headline" className="my-2">{parse(post.title)}</h1>
 
           <p>{post.date}</p>
 
@@ -43,7 +43,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
         <hr />
 
-        <footer>
+        <footer className="mb-6">
           <Bio />
         </footer>
       </article>

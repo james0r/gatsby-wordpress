@@ -3,7 +3,6 @@ import React from "react"
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import "../scss/all.scss"
-import "../scss/tachyons.min.css"
 
 const Layout = ({ isHomePage, children }) => {
   // const {
@@ -31,7 +30,9 @@ const Layout = ({ isHomePage, children }) => {
         <Navbar />
       </header>
 
-      <main className="container">{children}</main>
+      <main className="container mx-auto" style={{maxWidth: 600}}>
+        {children}
+      </main>
 
       <Footer />
     </div>

@@ -29,7 +29,9 @@ const BlogIndex = ({
     <Layout isHomePage>
       <Seo title="All posts" />
 
-      <Bio />
+      <h1 className="my-4 is-size-1">
+        Gatsby-Wordpress Blog
+      </h1>
 
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
