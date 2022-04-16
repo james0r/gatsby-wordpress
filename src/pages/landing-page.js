@@ -105,7 +105,7 @@ const IndexPage = (props) => {
                       <input
                         type="submit"
                         value="Notify Me"
-                        className={`button is-info ${isLoading && 'is-loading'}`}
+                        className={`button is-info ${isLoading ? 'is-loading' : ''}`}
                       />
                     </p>
                   </div>
