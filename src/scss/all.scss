@@ -80,6 +80,17 @@ $black: #2b2523;
   height: 1.5rem;
   fill: currentColor;
 }
+
+.landing-page-section .navbar-item .icon svg {
+  fill: white;
+  width: 1rem;
+  height: 1rem;
+}
+
+.landing-page-section .navbar-item .button:hover svg {
+  fill: black;
+}
+
 .navbar-brand .navbar-item.logo {
   padding: 0 1rem;
 }
