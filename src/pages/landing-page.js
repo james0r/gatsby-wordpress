@@ -102,11 +102,11 @@ const IndexPage = (props) => {
                       ></input>
                     </p>
                     <p className="control">
-                      <input
+                      <button
                         type="submit"
                         value="Notify Me"
                         className={`button is-info ${isLoading ? 'is-loading' : ''}`}
-                      />
+                      ></button>
                     </p>
                   </div>
                 </div>
