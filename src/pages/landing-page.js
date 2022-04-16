@@ -2,26 +2,29 @@ import React, { useState } from 'react'
 // import { graphql } from 'gatsby'
 // import parse from 'html-react-parser'
 // import { GatsbyImage } from 'gatsby-plugin-image'
-import "../scss/all.scss"
+import '../scss/all.scss'
 
 // Get Wordpress posts
 // Change limit to set max number of posts returned from query
 
 const IndexPage = (props) => {
-
   const [submittedMessage, setSubmittedMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const submitHandler = (event) => {
-    event.preventDefault();
-    var data = event.target;
-    console.log(event.target)
+    event.preventDefault()
+    var data = event.target
+    setIsLoading(true)
+
     fetch(data.getAttribute('action'), {
-      method: data.getAttribute('method'), 
-      body: new FormData(data)
-    }).then(res=> res.json())
+      method: data.getAttribute('method'),
+      body: new FormData(data),
+    })
+      .then((res) => res.json())
       .then(function (data) {
         setSubmittedMessage(data.message)
-      });
+        setIsLoading(false)
+      })
   }
 
   // Replace with relevant keywords for your site (for SEO)
@@ -33,7 +36,7 @@ const IndexPage = (props) => {
             <div className="navbar-brand">
               <a className="navbar-item" href="www.google.com">
                 <img
-                  src="http://bulma.io/images/bulma-type-white.png"
+                  src="https://bulma.io/images/bulma-type-white.png"
                   alt="Logo"
                 ></img>
               </a>
@@ -81,40 +84,38 @@ const IndexPage = (props) => {
               forward-thinking businesses around the world.
             </h2>
 
-            { submittedMessage === '' && 
+            {submittedMessage === '' && (
               <form
                 id="email-capture-form"
                 action="https://gatsby-wordpress.jamesauble.com/wp-json/contact-form-7/v1/contact-forms/56/feedback"
                 method="POST"
-                onSubmit={e => submitHandler(e)}
+                onSubmit={(e) => submitHandler(e)}
               >
-              <div className="box">
-                <div className="field is-grouped">
-                  <p className="control is-expanded">
-                    <input
-                      className="input"
-                      type="text"
-                      placeholder="Enter your email"
-                      name="your-email"
-                    ></input>
-                  </p>
-                  <p className="control">
-                    <input
-                      type="submit"
-                      value="Notify Me"
-                      className="button is-info"
-                    />
-                  </p>
+                <div className="box">
+                  <div className="field is-grouped">
+                    <p className="control is-expanded">
+                      <input
+                        className="input"
+                        type="text"
+                        placeholder="Enter your email"
+                        name="your-email"
+                      ></input>
+                    </p>
+                    <p className="control">
+                      <input
+                        type="submit"
+                        value="Notify Me"
+                        className={`button is-info ${isLoading && 'is-loading'}`}
+                      />
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </form>
-            }
+              </form>
+            )}
 
-            {submittedMessage !== '' && 
-              <div className="box">
-                {submittedMessage}
-              </div>
-            }
+            {submittedMessage !== '' && (
+              <div className="box">{submittedMessage}</div>
+            )}
           </div>
         </div>
       </div>
